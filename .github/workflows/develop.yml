@@ -9,7 +9,7 @@ on:
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   job1:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     if: ${{ contains(github.event.head_commit.message, 'release/') }}
     steps:
       - name: Mezcla develop -> feature
@@ -21,7 +21,7 @@ jobs:
       - name: Checkout de repositorio
         uses: actions/checkout@v2
       - name: Configuración de entorno de python
-        uses: actions/setup-python@v2
+        uses: actions/setup-python@v4
         with:
           python-version: '3.7'
       - name: Instalación de librerías y dependencias
